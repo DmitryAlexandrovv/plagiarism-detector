@@ -1,5 +1,5 @@
 {
-  "name": "plagiarism-detector-server",
+  "name": "plagiarism-detector",
   "version": "0.1.0",
   "main": "index.js",
   "repository": "https://github.com/DmitryAlexandrovv/plagiarism-detector.git",
