@@ -1,0 +1,12 @@
+{
+  "name": "plagiarism-detector-server",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "https://github.com/DmitryAlexandrovv/plagiarism-detector.git",
+  "author": "Dmitriy.Aleksandrov <Dmitriy.Aleksandrov@tatar.ru>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "node-fetch": "^3.3.1"
+  }
+}
