@@ -1,11 +1,13 @@
 import fetch from 'node-fetch';
 import fs from 'fs';
 
+const BASE_URL = 'http://127.0.0.1:5000/'; // Change when work with proxy
+
 export const findPlagiarism = async (firstFilePath, secondFilePath) => {
     const file1 = fs.readFileSync(firstFilePath, { encoding: 'utf8' });
     const file2 = fs.readFileSync(secondFilePath, { encoding: 'utf8' });
 
-    return await fetch('http://127.0.0.1:5000/compare', {
+    return await fetch(`${BASE_URL}compare`, {
         method: 'POST',
         body: JSON.stringify({
             files: [
@@ -20,7 +22,7 @@ export const findPlagiarism = async (firstFilePath, secondFilePath) => {
             ]
         }),
         headers: {
-            'Content-type': 'application/json'
+            'Content-type': 'application/json',
         }
     }).then((res) => res.json())
 }
