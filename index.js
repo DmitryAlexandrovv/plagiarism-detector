@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import fs from 'fs';
 
-const BASE_URL = 'http://127.0.0.1:5000/'; // Change when work with proxy
+const BASE_URL = 'http://localhost:5000/';
 
 export const findPlagiarism = async (firstFilePath, secondFilePath) => {
     const file1 = fs.readFileSync(firstFilePath, { encoding: 'utf8' });
@@ -24,5 +24,17 @@ export const findPlagiarism = async (firstFilePath, secondFilePath) => {
         headers: {
             'Content-type': 'application/json',
         }
-    }).then((res) => res.json())
+    }).then((res) =>{
+        return res.json(); 
+    })
+}
+
+export const checkStatus = async (id) => {
+    return await fetch(`${BASE_URL}task_status/${id}`)
+        .then((res) => res.json())
+}
+
+export const getResult = async (id) => {
+    return await fetch(`${BASE_URL}task_result/${id}`)
+        .then((res) => res.json())
 }
