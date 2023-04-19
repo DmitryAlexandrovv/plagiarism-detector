@@ -12,6 +12,6 @@
   },
   "type": "module",
   "bin": {
-    "plag-detector": "./index.js"
+    "plag-detector": "index.js"
   }
 }
