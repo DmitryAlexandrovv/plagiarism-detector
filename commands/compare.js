@@ -28,7 +28,11 @@ function compare (firstFilePath, secondFilePath) {
                     console.log(
                         chalk.blue.bold(res.data)
                     );
-                    fs.writeFile('../../../test.txt');
+                    fs.writeFile('../../../test.txt', '123', () => {
+                        console.log(
+                            chalk.blue.bold('file saved')
+                        );
+                    });
                 })
         }
     })
