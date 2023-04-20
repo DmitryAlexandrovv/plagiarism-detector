@@ -16,7 +16,8 @@ program
     .description('Compare folders to plagiarism')
     .action(function () {
         const { folders, name } = this.opts();
-        console.log('here');
+        console.log('123');
+        console.log(name);
         compareFolders(folders, name);
     });
 
