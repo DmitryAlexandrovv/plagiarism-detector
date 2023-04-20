@@ -1,6 +1,4 @@
 import chalk from "chalk";
-import fs from "fs";
-import path from "path";
 import { findPlagiarism, checkStatus, getResult } from "../utils/index.js";
 
 

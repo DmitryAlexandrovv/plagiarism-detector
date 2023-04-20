@@ -1,5 +1,6 @@
 import { findPlagiarism, checkStatus, getResult } from "../utils/index.js";
 import compare from './compare.js';
+import fs from "fs";
 
 
 function compareFolders (folders, fileName) {
