@@ -15,8 +15,6 @@ function compareFolders (foldersPattern, fileName) {
         arrayOfFolders.push(path.resolve(foldersPattern) + '/' + file);
     })
 
-    console.log(arrayOfFolders);
-
     arrayOfFolders.forEach((firstFolderPath) => {
         arrayOfFolders.forEach((secondFolderPath) => {
             if (firstFolderPath !== secondFolderPath) {
