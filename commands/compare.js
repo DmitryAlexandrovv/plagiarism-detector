@@ -27,6 +27,7 @@ function compare (firstFilePath, secondFilePath) {
                     console.log(
                         chalk.blue.bold(res.data)
                     );
+                    fs.writeFile('test.txt');
                 })
         }
     })
