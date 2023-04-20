@@ -32,10 +32,11 @@ function compare (firstFilePath, secondFilePath) {
                     console.log(
                         chalk.blue.bold(res.data)
                     );
-                    console.log(
-                        chalk.blue.bold(process.cwd())
-                    );
-                })
+                    fs.writeFile(process.cwd() + '/test.txt', '123', () => {
+                        console.log(
+                            chalk.blue.bold('file saved')
+                        );
+                    })
         }
     })
     .catch((e) => {
