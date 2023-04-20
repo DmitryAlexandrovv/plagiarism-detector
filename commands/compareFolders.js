@@ -2,15 +2,14 @@ import { findPlagiarism, checkStatus, getResult } from "../utils/index.js";
 import compare from './compare.js';
 import fs from "fs";
 import chalk from "chalk";
+import path from "path";
 
 
 function compareFolders (foldersPattern, fileName) {
     const arrayOfFolders = [];
     const promises = [];
 
-    console.log(foldersPattern);
-
-    fs.readdirSync(foldersPattern, (err, files) => {
+    fs.readdirSync(path.resolve(foldersPattern), (err, files) => {
         console.log(files);
         files.forEach(file => {
             arrayOfFolders.push(file);
