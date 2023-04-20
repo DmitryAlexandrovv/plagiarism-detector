@@ -1,7 +1,6 @@
 import chalk from "chalk";
 import { findPlagiarism, checkStatus, getResult } from "../utils/index.js";
 
-
 function compare (firstFilePath, secondFilePath) {
     return findPlagiarism(firstFilePath, secondFilePath)
         .then(async ({ state, data }) => {

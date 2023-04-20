@@ -1,6 +1,7 @@
 import { findPlagiarism, checkStatus, getResult } from "../utils/index.js";
 import compare from './compare.js';
 import fs from "fs";
+import chalk from "chalk";
 
 
 function compareFolders (folders, fileName) {
@@ -17,7 +18,7 @@ function compareFolders (folders, fileName) {
     });
 
     Promise.all(promises).then((data) => {
-        fs.writeFile(process.cwd() + '/plag.json', data, () => {
+        fs.writeFile(process.cwd() + '/plag.json', JSON.stringify(data), () => {
             console.log(
                 chalk.blue.bold('Completed')
             );
