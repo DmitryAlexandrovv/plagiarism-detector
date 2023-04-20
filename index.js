@@ -10,8 +10,13 @@ program
     .action(compare)
 
 program
-    .command('compare-folders <fodlers> <fileName>')
+    .command('compare-folders <folders> <fileName>')
+    .option('-f, --folders', 'send folders')
+    .option('-name, --name', 'send fileName')
     .description('Compare folders to plagiarism')
-    .action(compareFolders)
+    .action((path, opts, commonOpts) => {
+        const { folders, name } = commonOpts;
+        compareFolders(folders, name);
+    });
 
 program.parse()
