@@ -5,7 +5,7 @@ import compare from './commands/compare.js';
 import compareFolders from './commands/compareFolders.js';
 
 program
-    .command('compare <firstFilePath> <secondFilePath>')
+    .command('compare')
         .option('-fp, --firstFilePath <firstFilePath>', 'firstFilePath')
         .option('-sp, --secondFilePath <secondFilePath>', 'secondFilePath')
         .description('Compare programs to plagiarism')
