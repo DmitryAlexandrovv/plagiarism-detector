@@ -8,6 +8,10 @@ function compareFolders (folders, fileName) {
     const arrayOfFolders = folders.split(';');
     const promises = [];
 
+    console.log('compare fodlers');
+    console.log(folders);
+    console.log(fileName);
+
     arrayOfFolders.forEach((firstFolderPath) => {
         arrayOfFolders.forEach((secondFolderPath) => {
             if (firstFolderPath !== secondFolderPath) {
