@@ -37,6 +37,7 @@ function compare (firstFilePath, secondFilePath) {
                             chalk.blue.bold('file saved')
                         );
                     })
+                });
         }
     })
     .catch((e) => {
