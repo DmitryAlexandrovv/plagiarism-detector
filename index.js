@@ -14,9 +14,11 @@ program
         .option('-f, --folders <folders>', 'send folders')
         .option('-n, --fileName <fileName>', 'send fileName')
         .description('Compare folders to plagiarism')
-        .action(function () {
+        .action(function (t, options) {
             const { folders, fileName } = this.opts();
             console.log('123');
+            console.log(t);
+            console.log(options);
             console.log(fileName);
             compareFolders(folders, fileName);
         });
