@@ -6,11 +6,11 @@ import { findPlagiarism, checkStatus, getResult } from "../utils/index.js";
 
 function compare (firstFilePath, secondFilePath) {
     return findPlagiarism(firstFilePath, secondFilePath)
-        .then(({ state, data }) => {
+        .then(async ({ state, data }) => {
             const id = data;
 
             if (state === 'ok') {
-                new Promise((resolve) => {
+                const result = await new Promise((resolve) => {
                     const intervalId = setInterval(async () => {
                         const statusResult = await checkStatus(id);
         
@@ -30,12 +30,13 @@ function compare (firstFilePath, secondFilePath) {
                             chalk.blue.bold(res.data)
                         );
 
-                        return {
+                        resolve({
                             firstFilePath,
                             secondFilePath,
                             result: res.data,
-                        };
+                        });
                     });
+                return result;
             }
         })
         .catch((e) => {

@@ -10,7 +10,6 @@ function compareFolders (folders, fileName) {
         arrayOfFolders.forEach((secondFolderPath) => {
             if (firstFolderPath !== secondFolderPath) {
                 const task = compare(`${firstFolderPath}/${fileName}`, `${secondFolderPath}/${fileName}`);
-                console.log(task);
                 promises.push(task);
             }
         })
