@@ -9,9 +9,11 @@ function compareFolders (foldersPattern, fileName) {
     const arrayOfFolders = [];
     const promises = [];
 
-    arrayOfFolders = fs.readdirSync(path.resolve(foldersPattern)).filter(function (file) {
+    fs.readdirSync(path.resolve(foldersPattern)).filter(function (file) {
         return fs.statSync(path.resolve(foldersPattern) + '/' + file).isDirectory();
-    });
+    }).forEach((item) => {
+        console.log(item);
+    })
 
     console.log(arrayOfFolders);
 
