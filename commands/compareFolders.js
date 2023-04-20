@@ -6,6 +6,7 @@ import chalk from "chalk";
 
 function compareFolders (folders, fileName) {
     const arrayOfFolders = folders.split(';');
+    console.log(arrayOfFolders)
     const promises = [];
 
     arrayOfFolders.forEach((firstFolderPath) => {
