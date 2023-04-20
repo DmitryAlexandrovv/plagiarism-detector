@@ -11,8 +11,8 @@ program
 
 program
     .command('compare-folders')
-    .option('-f, --folders', 'send folders')
-    .option('-name, --name', 'send fileName')
+    .option('-f, --folders <folders>', 'send folders')
+    .option('-n, --name <name>', 'send fileName')
     .description('Compare folders to plagiarism')
     .action(function (path, opts) {
         console.log(this.opts());
