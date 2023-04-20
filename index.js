@@ -16,7 +16,7 @@ program
         .description('Compare folders to plagiarism')
         .action(function (options) {
             const { folders, fileName } = options;
-            compareFolders(folders.slice(1, -1), fileName);
+            compareFolders(folders, fileName);
         });
 
 program.parse()
