@@ -4,9 +4,17 @@ import fs from "fs";
 import chalk from "chalk";
 
 
-function compareFolders (folders, fileName) {
-    const arrayOfFolders = folders.split(';');
+function compareFolders (foldersPattern, fileName) {
+    const arrayOfFolders = [];
     const promises = [];
+
+    fs.readdir(foldersPattern, (err, files) => {
+        files.forEach(file => {
+            arrayOfFolders.push(file);
+        });
+    });
+
+    console.log(arrayOfFolders);
 
     arrayOfFolders.forEach((firstFolderPath) => {
         arrayOfFolders.forEach((secondFolderPath) => {

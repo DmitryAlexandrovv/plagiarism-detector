@@ -16,12 +16,12 @@ program
 
 program
     .command('compare-folders')
-        .option('-f, --folders <folders>', 'send folders')
+        .option('-fp, --foldersPattern <foldersPattern>', 'send foldersPattern')
         .option('-n, --fileName <fileName>', 'send fileName')
         .description('Compare folders to plagiarism')
         .action(function (options) {
-            const { folders, fileName } = options;
-            compareFolders(folders, fileName);
+            const { foldersPattern, fileName } = options;
+            compareFolders(foldersPattern, fileName);
         });
 
 program.parse()
