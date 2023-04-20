@@ -8,7 +8,10 @@ function compareFolders (foldersPattern, fileName) {
     const arrayOfFolders = [];
     const promises = [];
 
-    fs.readdir(foldersPattern, (err, files) => {
+    console.log(foldersPattern);
+
+    fs.readdirSync(foldersPattern, (err, files) => {
+        console.log(files);
         files.forEach(file => {
             arrayOfFolders.push(file);
         });
