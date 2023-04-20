@@ -10,11 +10,8 @@ function compareFolders (foldersPattern, fileName) {
     const promises = [];
 
     arrayOfFolders = fs.readdirSync(path.resolve(foldersPattern)).filter(function (file) {
-        console.log(file);
-        return fs.statSync(path + '/' + file).isDirectory();
+        return fs.statSync(path.resolve(foldersPattern) + '/' + file).isDirectory();
     });
-
-    console.log(arrayOfFolders);
 
     console.log(arrayOfFolders);
 
