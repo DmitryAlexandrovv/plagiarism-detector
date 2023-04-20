@@ -15,13 +15,13 @@ function compareFolders (folders, fileName) {
         })
     });
 
-    Promise.all(promises).then((res) => console.log(res));
-
-    // fs.writeFile(process.cwd() + '/plag.json', '123', () => {
-    //     console.log(
-    //         chalk.blue.bold('Completed')
-    //     );
-    // })
+    Promise.all(promises).then((data) => {
+        fs.writeFile(process.cwd() + '/plag.json', data, () => {
+            console.log(
+                chalk.blue.bold('Completed')
+            );
+        })
+    });
 }
 
 export default compareFolders;
