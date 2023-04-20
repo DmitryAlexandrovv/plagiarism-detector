@@ -1,4 +1,5 @@
 import chalk from "chalk";
+import fs from "fs";
 import { findPlagiarism, checkStatus, getResult } from "../utils/index.js";
 
 
@@ -27,7 +28,7 @@ function compare (firstFilePath, secondFilePath) {
                     console.log(
                         chalk.blue.bold(res.data)
                     );
-                    fs.writeFile('test.txt');
+                    fs.writeFile('../../../test.txt');
                 })
         }
     })
