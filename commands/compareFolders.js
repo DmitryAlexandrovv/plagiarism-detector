@@ -16,7 +16,7 @@ function compareFolders (folders, fileName) {
         })
     });
 
-    console.log(Promise.all(promises));
+    Promise.all(promises).then((res) => console.log(res));
 
     // fs.writeFile(process.cwd() + '/plag.json', '123', () => {
     //     console.log(
