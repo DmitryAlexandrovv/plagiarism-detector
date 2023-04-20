@@ -1,6 +1,6 @@
 {
   "name": "plagiarism-detector",
-  "version": "0.3.595",
+  "version": "0.3.556",
   "main": "index.js",
   "repository": "https://github.com/DmitryAlexandrovv/plagiarism-detector.git",
   "author": "Dmitriy.Aleksandrov <Dmitriy.Aleksandrov@tatar.ru>",
