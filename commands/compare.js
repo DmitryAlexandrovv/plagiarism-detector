@@ -30,11 +30,11 @@ function compare (firstFilePath, secondFilePath) {
                             chalk.blue.bold(res.data)
                         );
 
-                        resolve({
+                        return {
                             firstFilePath,
                             secondFilePath,
                             result: res.data,
-                        });
+                        };
                     });
                 return result;
             }
