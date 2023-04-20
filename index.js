@@ -6,8 +6,13 @@ import compareFolders from './commands/compareFolders.js';
 
 program
     .command('compare <firstFilePath> <secondFilePath>')
-    .description('Compare programs to plagiarism')
-    .action(compare)
+        .option('-fp, --firstFilePath <firstFilePath>', 'firstFilePath')
+        .option('-sp, --secondFilePath <secondFilePath>', 'secondFilePath')
+        .description('Compare programs to plagiarism')
+        .action(function (options) {
+            const { firstFilePath, secondFilePath } = options;
+            compare(firstFilePath, secondFilePath);
+        })
 
 program
     .command('compare-folders')
@@ -16,7 +21,6 @@ program
         .description('Compare folders to plagiarism')
         .action(function (options) {
             const { folders, fileName } = options;
-            console.log(folders);
             compareFolders(folders, fileName);
         });
 
