@@ -11,14 +11,14 @@ program
 
 program
     .command('compare-folders')
-    .option('-f, --folders <folders>', 'send folders')
-    .option('-n, --name <name>', 'send fileName')
-    .description('Compare folders to plagiarism')
-    .action(function () {
-        const { folders, name } = this.opts();
-        console.log('123');
-        console.log(name);
-        compareFolders(folders, name);
-    });
+        .option('-f, --folders <folders>', 'send folders')
+        .option('-n, --fileName <fileName>', 'send fileName')
+        .description('Compare folders to plagiarism')
+        .action(function () {
+            const { folders, fileName } = this.opts();
+            console.log('123');
+            console.log(fileName);
+            compareFolders(folders, fileName);
+        });
 
 program.parse()
