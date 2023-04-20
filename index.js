@@ -20,7 +20,7 @@ program
             console.log(t);
             console.log(options);
             console.log(fileName);
-            compareFolders(folders, fileName);
+            compareFolders(folders.slice(1, -1), fileName);
         });
 
 program.parse()
