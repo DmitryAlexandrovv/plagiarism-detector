@@ -10,7 +10,7 @@ program
     .action(compare)
 
 program
-    .command('compare-folders <folders> <fileName>')
+    .command('compare-folders')
     .option('-f, --folders', 'send folders')
     .option('-name, --name', 'send fileName')
     .description('Compare folders to plagiarism')
