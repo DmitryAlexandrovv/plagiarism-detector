@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import { findPlagiarism, checkStatus, getResult } from "../utils/index.js";
 
-function compare (firstFilePath, secondFilePath) {
+function compare (firstFilePath, secondFilePath, firstRelativePath, secondRelativePath) {
     return findPlagiarism(firstFilePath, secondFilePath)
         .then(async ({ state, data }) => {
             const id = data;
@@ -28,8 +28,8 @@ function compare (firstFilePath, secondFilePath) {
                         );
 
                         return {
-                            firstFilePath,
-                            secondFilePath,
+                            firstRelativePath,
+                            secondRelativePath,
                             result: res.data,
                         };
                     });

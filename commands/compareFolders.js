@@ -12,20 +12,52 @@ function compareFolders (foldersPattern, fileName) {
     fs.readdirSync(path.resolve(foldersPattern)).filter(function (file) {
         return fs.statSync(path.resolve(foldersPattern) + '/' + file).isDirectory();
     }).forEach((file) => {
-        arrayOfFolders.push(path.resolve(foldersPattern) + '/' + file);
+        arrayOfFolders.push({
+            path: path.resolve(foldersPattern) + '/' + file, 
+            relativePath: foldersPattern + '/' + file 
+        });
     })
 
-    arrayOfFolders.forEach((firstFolderPath) => {
-        arrayOfFolders.forEach((secondFolderPath) => {
-            if (firstFolderPath !== secondFolderPath) {
-                const task = compare(`${firstFolderPath}/${fileName}`, `${secondFolderPath}/${fileName}`);
+    const comapred = {};
+
+    arrayOfFolders.forEach(({ path: firstFolderPath, relativePath: firstRelativePath }) => {
+        arrayOfFolders.forEach(({ path: secondFolderPath, relativePath: secondRelativePath }) => {
+            if (firstFolderPath !== secondFolderPath && !comapred[firstFolderPath + secondFolderPath]) {
+                comapred[firstFolderPath + secondFolderPath] = true;
+                const task = compare(
+                    `${firstFolderPath}/${fileName}`, 
+                    `${secondFolderPath}/${fileName}`,
+                    firstRelativePath,
+                    secondRelativePath,
+                );
                 promises.push(task);
             }
         })
     });
 
     Promise.all(promises).then((data) => {
-        fs.writeFile(process.cwd() + '/plag.json', JSON.stringify(data), () => {
+        const result = [];
+        data.forEach((item) => {
+            const findIndex = result.find(({ file }) => file === item.firstRelativePath);
+            if (findIndex !== -1) {
+                result[findIndex].comparedFiles.push({
+                    file: item.secondRelativePath,
+                    result: item.result,
+                });
+            } else {
+                result.push({
+                    file: item.firstRelativePath,
+                    comparedFiles: [
+                        {
+                            file: item.secondRelativePath,
+                            result: item.result,
+                        }
+                    ]
+                })
+            }
+        });
+
+        fs.writeFile(process.cwd() + '/plag.json', JSON.stringify(result), () => {
             console.log(
                 chalk.blue.bold('Completed')
             );
