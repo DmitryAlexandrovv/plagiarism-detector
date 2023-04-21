@@ -14,7 +14,7 @@ function compareFolders (foldersPattern, fileName) {
     }).forEach((file) => {
         arrayOfFolders.push({
             path: path.resolve(foldersPattern) + '/' + file, 
-            relativePath: foldersPattern + '/' + fileName 
+            relativePath: foldersPattern + '/' + file + '/' + fileName, 
         });
     })
 
