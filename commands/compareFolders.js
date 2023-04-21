@@ -38,9 +38,9 @@ function compareFolders (foldersPattern, fileName) {
     Promise.all(promises).then((data) => {
         const result = [];
         data.forEach((item) => {
-            const findIndex = result.find(({ file }) => file === item.firstRelativePath);
-            if (findIndex !== -1) {
-                result[findIndex].comparedFiles.push({
+            const index = result.findIndex(({ file }) => file === item.firstRelativePath);
+            if (index !== -1) {
+                result[index].comparedFiles.push({
                     file: item.secondRelativePath,
                     result: item.result,
                 });
