@@ -34,7 +34,10 @@ function compare (firstFilePath, secondFilePath, firstRelativePath, secondRelati
                             chalk.blue.bold(`Time to work ${(endTime - startTime) / 1000}`)
                         );
                         console.log(
-                            chalk.blue.bold(res.data)
+                            `plagged lines ${chalk.blue.bold(res.data.plagged_lines)}`
+                        );
+                        console.log(
+                            `similarity ${chalk.blue.bold(res.data.similarity)}`
                         );
 
                         return {
