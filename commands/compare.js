@@ -11,6 +11,10 @@ function compare (firstFilePath, secondFilePath, firstRelativePath, secondRelati
                 const result = await new Promise((resolve) => {
                     const intervalId = setInterval(async () => {
                         const statusResult = await checkStatus(id);
+
+                        console.log(
+                            chalk.green.bold(statusResult.data)
+                        );
         
                         if (statusResult.state === 'ok' && statusResult.data === 'SUCCESS') {
                             clearInterval(intervalId);
