@@ -27,7 +27,7 @@ function compare (firstFilePath, secondFilePath, firstRelativePath, secondRelati
                             chalk.blue.bold(`Plagiarism for files ${firstRelativePath} and ${secondRelativePath} finded in lines:`)
                         );
                         console.log(
-                            chalk.blue.bold(`Time to work ${(startTime - endTime) / 3600}`)
+                            chalk.blue.bold(`Time to work ${(endTime - startTime) / 3600}`)
                         );
                         console.log(
                             chalk.blue.bold(res.data)
