@@ -8,6 +8,7 @@ import path from "path";
 function compareFolders (foldersPattern, fileName) {
     const arrayOfFolders = [];
     const promises = [];
+    const startTime = new Date().getTime();
 
     fs.readdirSync(path.resolve(foldersPattern)).filter(function (file) {
         return fs.statSync(path.resolve(foldersPattern) + '/' + file).isDirectory();
@@ -37,6 +38,7 @@ function compareFolders (foldersPattern, fileName) {
 
     Promise.all(promises).then((data) => {
         const result = [];
+        const endTime = new Date().getTime();
         data.forEach((item) => {
             const index = result.findIndex(({ file }) => file === item.firstRelativePath);
             if (index !== -1) {
@@ -58,6 +60,9 @@ function compareFolders (foldersPattern, fileName) {
         });
 
         fs.writeFile(process.cwd() + '/plag.json', JSON.stringify(result), () => {
+            console.log(
+                chalk.blue.bold(`Time for all files comapre is ${(endTime - startTime) / 3600}`)
+            );
             console.log(
                 chalk.blue.bold('Completed')
             );
