@@ -61,7 +61,7 @@ function compareFolders (foldersPattern, fileName) {
         fs.writeFile(process.cwd() + '/plag.json', JSON.stringify(result), () => {
             const endTime = new Date().getTime();
             console.log(
-                chalk.blue.bold(`Time for all files comapre is ${(endTime - startTime) / 3600}`)
+                chalk.blue.bold(`Time for all files comapre is ${(endTime - startTime) / 1000}`)
             );
             console.log(
                 chalk.blue.bold('Completed')
