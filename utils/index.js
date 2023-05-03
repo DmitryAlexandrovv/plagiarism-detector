@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import fs from 'fs';
 import path from 'path';
-const BASE_URL = 'http://51.250.91.217:5000/';
+const BASE_URL = 'http://51.250.72.212:5000/';
 
 export const findPlagiarism = async (firstFilePath, secondFilePath) => {
     const file1 = fs.readFileSync(path.resolve(firstFilePath), { encoding: 'utf8' });
