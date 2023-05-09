@@ -3,6 +3,7 @@
 import { program } from 'commander';
 import compare from './commands/compare.js';
 import compareFolders from './commands/compareFolders.js';
+import { findPlagiarism, checkStatus, getResult } from './utils/index.js';
 
 program
     .command('compare')
@@ -25,3 +26,9 @@ program
         });
 
 program.parse()
+
+export { 
+    findPlagiarism,
+    checkStatus,
+    getResult,
+}
